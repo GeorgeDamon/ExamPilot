@@ -10,7 +10,6 @@ from autoexam.live import LivePlatform
 from autoexam.models import Answer, CompatibilityError
 from autoexam.parsing import parse_questions
 
-
 ROOT = Path(__file__).resolve().parent.parent
 
 

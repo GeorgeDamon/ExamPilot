@@ -7,7 +7,6 @@ from bs4 import BeautifulSoup
 
 from .models import CompatibilityError, Exam, ExamState, NeedsUser, Question
 
-
 LIST_MOBILE = "https://mooc1-api.chaoxing.com/exam/phone/task-list"
 COURSE_HOME = "https://mooc2-ans.chaoxing.com/visit/interaction"
 STATES = {

@@ -7,8 +7,8 @@ import signal
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
 
-from .store import private_dir, private_json
 from .models import utcnow
+from .store import private_dir, private_json
 
 
 class InstanceLock:

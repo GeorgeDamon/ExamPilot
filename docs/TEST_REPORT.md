@@ -5,7 +5,7 @@
 ## 本版本实际执行
 
 - macOS Apple Silicon，Python 3.12.7。
-- 100 项 pytest 测试全部通过，0 failed、0 skipped，耗时 13.01 秒。
+- 100 项 pytest 测试全部通过，0 failed、0 skipped，耗时 13.16 秒。
 - 使用官方 Chromium 运行 5 项合成页面测试，无账号或真实试卷。
 - Ruff 静态检查和格式检查通过。
 - wheel 和 sdist 构建通过，twine 元数据/README 检查通过。

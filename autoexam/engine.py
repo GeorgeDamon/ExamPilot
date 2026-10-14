@@ -96,9 +96,7 @@ class Engine:
             return
         if known in UNCERTAIN_SUBMIT:
             # Do not repeatedly emit an unchanged UNKNOWN state on every poll.
-            if exam.state == ExamState.SUBMITTED:
-                await self.reconcile(exam)
-            elif known == TaskState.SUBMITTING:
+            if exam.state == ExamState.SUBMITTED or known == TaskState.SUBMITTING:
                 await self.reconcile(exam)
             return
         if exam.state == ExamState.SUBMITTED:

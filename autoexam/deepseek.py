@@ -9,7 +9,6 @@ from pydantic import ValidationError
 from .config import DeepSeek
 from .models import Answer, DeadlineError, ProviderError, Question
 
-
 SYSTEM_PROMPT = """你是一个选择题解答引擎。阅读完整题干和全部选项，区分单选和多选。
 单选只返回一个选项，多选返回所有你认为正确的选项。答案必须来自提供的选项。
 question_id 必须保持不变，不得重复、遗漏题目或编造选项。不确定时 uncertain=true。

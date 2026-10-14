@@ -1,7 +1,7 @@
 import json
 import os
 import plistlib
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 import pytest
@@ -143,7 +143,7 @@ def test_shanghai_schedule_boundaries(cfg, hour, minute, expected):
 
     now = datetime(2026, 10, 14, hour, minute, tzinfo=ZoneInfo("Asia/Shanghai"))
     assert in_window(cfg, now) is expected
-    assert in_window(cfg, now.astimezone(timezone.utc)) is expected
+    assert in_window(cfg, now.astimezone(UTC)) is expected
 
 
 def test_wrong_weekday_no_dispatch(cfg):
@@ -157,9 +157,8 @@ def test_single_instance_stale_lock_and_stop_file(tmp_path):
     assert not running(runtime)
     with InstanceLock(runtime) as lock:
         assert running(runtime)
-        with pytest.raises(RuntimeError):
-            with InstanceLock(runtime):
-                pass
+        with pytest.raises(RuntimeError), InstanceLock(runtime):
+            pass
         (runtime / "stop.request").touch()
         assert lock.stop_requested()
     assert not running(runtime)
@@ -229,7 +228,9 @@ def test_no_question_bank_in_state_db(world, tmp_path):
 
 def test_mock_backend_run_never_opens_live_platform(cfg, tmp_path, monkeypatch):
     import sys
+
     import yaml
+
     from autoexam import cli
 
     cfg.platform.backend = "mock"
