@@ -1,0 +1,12 @@
+include LICENSE README.md README.en.md CHANGELOG.md CONTRIBUTING.md SECURITY.md NOTICE.md
+include requirements.txt requirements.lock.txt config.example.yaml .env.example
+include install.sh uninstall.sh start.sh stop.sh status.sh
+recursive-include autoexam/resources *.yaml *.example
+recursive-include tests *.py *.html
+recursive-include scripts *.sh *.py
+recursive-include docs *.md *.json
+recursive-include .github *.yml *.yaml *.md
+global-exclude __pycache__ *.py[cod] .DS_Store
+prune runtime
+prune .venv
+prune .browser

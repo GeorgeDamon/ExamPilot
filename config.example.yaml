@@ -1,0 +1,50 @@
+app:
+  name: ExamPilot
+  timezone: Asia/Shanghai
+schedule:
+  weekday: wednesday
+  start_time: '07:59'
+  monitor_start: '08:00'
+  monitor_end: '10:00'
+monitor:
+  interval_seconds: 30
+  target_course_id: ''
+  target_class_id: ''
+  target_cpi: ''
+  check_on_startup: true
+  max_consecutive_failures: 5
+deepseek:
+  base_url: https://api.deepseek.com
+  model: deepseek-flash
+  thinking: false
+  batch_size: 20
+  max_concurrency: 3
+  connect_timeout_seconds: 5
+  timeout_seconds: 30
+  max_retries: 2
+  max_tokens: 4096
+exam:
+  single_choice: true
+  multiple_choice: true
+  auto_answer: true
+  auto_submit: true
+  dry_run: true
+  reserve_seconds: 20
+  uncertain_second_pass: true
+  max_questions: 200
+notification:
+  enabled: true
+  macos: true
+  mobile: false
+logging:
+  level: INFO
+platform:
+  backend: live
+  headless: true
+  timeout_seconds: 12
+  # Exact visible button labels; adjust only after inspecting your real exam.
+  start_labels: ['开始考试', '进入考试', '继续考试']
+  submit_labels: ['交卷', '提交试卷']
+  confirm_labels: ['确定', '确认提交']
+  runtime_dir: runtime
+
